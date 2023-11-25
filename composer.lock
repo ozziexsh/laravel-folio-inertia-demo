@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b2047484fb147a8ce160b56207cc12f",
+    "content-hash": "b6758e93071a9862ada219bfe83bbc67",
     "packages": [
         {
             "name": "brick/math",
@@ -6283,6 +6283,99 @@
             "time": "2021-10-08T21:21:46+00:00"
         },
         {
+            "name": "laravel/folio",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../laravel/folio",
+                "reference": "b2be125f0a5bc88fc865d0d6ed3f0f8802e089b7"
+            },
+            "require": {
+                "illuminate/console": "^10.19|^11.0",
+                "illuminate/container": "^10.19|^11.0",
+                "illuminate/contracts": "^10.19|^11.0",
+                "illuminate/filesystem": "^10.19|^11.0",
+                "illuminate/pipeline": "^10.19|^11.0",
+                "illuminate/routing": "^10.19|^11.0",
+                "illuminate/support": "^10.19|^11.0",
+                "illuminate/view": "^10.19|^11.0",
+                "inertiajs/inertia-laravel": "^0.6.11",
+                "php": "^8.1",
+                "spatie/once": "^3.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^8.6.0",
+                "pestphp/pest": "^2.5",
+                "phpstan/phpstan": "^1.10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Folio\\FolioServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Folio\\": "src/"
+                },
+                "files": [
+                    "functions.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app",
+                    "Workbench\\Database\\": "workbench/database"
+                }
+            },
+            "scripts": {
+                "post-autoload-dump": [
+                    "@composer run prepare"
+                ],
+                "prepare": [
+                    "@php vendor/bin/testbench package:discover --ansi"
+                ],
+                "build": [
+                    "@composer run prepare",
+                    "@php ./vendor/bin/testbench package:create-sqlite-db",
+                    "@php ./vendor/bin/testbench migrate:refresh"
+                ],
+                "start": [
+                    "@composer run prepare",
+                    "@php ./vendor/bin/testbench serve"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Page based routing for Laravel.",
+            "homepage": "https://github.com/laravel/folio",
+            "keywords": [
+                "laravel",
+                "routing"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/folio/issues",
+                "source": "https://github.com/laravel/folio"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "laravel/pint",
             "version": "v1.13.6",
             "source": {
@@ -8935,6 +9028,68 @@
             "time": "2023-10-09T12:55:26+00:00"
         },
         {
+            "name": "spatie/once",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/once.git",
+                "reference": "aab3fc8694e7caec98b2d330c4a8420391c7559d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/once/zipball/aab3fc8694e7caec98b2d330c4a8420391c7559d",
+                "reference": "aab3fc8694e7caec98b2d330c4a8420391c7559d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.21",
+                "symfony/var-dumper": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Spatie\\Once\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A magic memoization function",
+            "homepage": "https://github.com/spatie/once",
+            "keywords": [
+                "cache",
+                "callable",
+                "memoization",
+                "once",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/once/tree/3.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-04-21T12:23:20+00:00"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v6.3.8",
             "source": {
@@ -9118,7 +9273,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "laravel/folio": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
