@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 
-use function Laravel\Folio\props;
 use function Laravel\Folio\render;
 
 render(function ($view) {
